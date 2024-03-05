@@ -37,7 +37,7 @@ player_move_left = [-4, 0]
 def create_enemy():
     enemy_size = (25,25)
     enemy =  pygame.transform.scale(pygame.image.load('enemy.png'), (120, 50))
-    enemy_rect = pygame.Rect(WIDTH, random.randint(100, 620), *enemy_size)
+    enemy_rect = pygame.Rect(WIDTH, random.randint(50, 620), *enemy_size)
     enemy_move = [random.randint(-7, -6), 0]
     return [enemy, enemy_rect, enemy_move]
 
@@ -114,7 +114,7 @@ while playing:
             game_over_text = FONT.render("GAME OVER. YOUR SCORE: " + str(score), True, COLOR_BLACK)
             main_display.blit(game_over_text, ((WIDTH - game_over_text.get_width()) // 2, (HEIGHT - game_over_text.get_height()) // 2))
             pygame.display.flip()
-            pygame.time.delay(10000)
+            pygame.time.delay(3000)
             playing = False
             break
 
@@ -126,7 +126,7 @@ while playing:
             score += 1
             bonuses.pop(bonuses.index(bonus))
 
-    main_display.blit(FONT.render(str(score), True, COLOR_BLACK), (WIDTH-50, 20))
+    main_display.blit(FONT.render(str(score), True, COLOR_BLACK), (WIDTH-100, 20))
     main_display.blit(player, player_rect)
 
     print(len(enemies))
